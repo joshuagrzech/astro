@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>588113870416-b5u0gtj5iffdbnanhhqtvofvj0191v46.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.588113870416-b5u0gtj5iffdbnanhhqtvofvj0191v46</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC3G33eM1MqevwgLkRhFLxLri9UHBzYM8k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>588113870416</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>AstroGrzechStudios</string>
+	<key>PROJECT_ID</key>
+	<string>astro-ee1e9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>astro-ee1e9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:588113870416:ios:f4628335ff34f68961db55</string>
+	<key>DATABASE_URL</key>
+	<string>https://astro-ee1e9.firebaseio.com</string>
+</dict>
+</plist>
