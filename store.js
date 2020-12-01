@@ -4,6 +4,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import { rootEpic } from './epics'
 import { persistStore, persistReducer } from 'redux-persist'
 import AsyncStorage from '@react-native-community/async-storage';
+import devToolsEnhancer from 'remote-redux-devtools';
 
 const persistConfig = {
     key: 'root',
@@ -17,7 +18,9 @@ const epicMiddleware = createEpicMiddleware();
 
 export const store = createStore(
     persistedReducer,
+    devToolsEnhancer(),
    rootEpic
+   
 )
 
 

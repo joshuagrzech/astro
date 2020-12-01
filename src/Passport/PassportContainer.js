@@ -11,7 +11,10 @@ const mapDispatchToProps = dispatch => ({
     },
     profileBirth: (value) => {
         dispatch({type: 'profileBirth', payload: value})
-    }     
+    },
+    setProfilePicture: (value) => {
+        dispatch({type: 'setProfilePicture', payload: value})
+    },     
 })
 
 

@@ -14,7 +14,7 @@ export class IntroFinal extends React.Component {
     };
   }
   completeSetup() {
-    console.log('FINAL PROFILE' + `${this.props.user.uid}`)
+    console.log(this.props.user.uid)
     fetch('https://us-central1-astro-ee1e9.cloudfunctions.net/saveNewUser', {
       method: 'POST',
       headers: {
@@ -22,35 +22,16 @@ export class IntroFinal extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        uid: this.props.user.uid,
-        name: this.props.user.name,
-        email: this.props.user.email,
-        astroProfile: this.props.profile,
+        user: Object.assign({}, this.props.user, {setupComplete: true})
       }),
     }).then(() => {
-      console.log({
-        uid: this.props.user.uid,
-        name: this.props.user.name,
-        email: this.props.user.email,
-        astroProfile: this.props.profile,
-      })
-      this.props.userData({
-        uid: this.props.user.uid,
-        name: this.props.user.name,
-        email: this.props.user.email,
-        astroProfile: this.props.profile,
-      });
-      this.props.markSetupComplete(true);
+      this.props.userData({setupComplete: true});
     });
   }
   render() {
     return (
       <SafeAreaView style={{height: '100%'}}>
-        <Spinner
-          visible={this.state.spinner}
-          textContent={'Loading...'}
-          textStyle={styles.spinnerTextStyle}
-        />
+        
         <View style={{flex: 1}}>
           <View
             style={{

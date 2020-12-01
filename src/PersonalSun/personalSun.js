@@ -51,11 +51,11 @@ export class PersonalSun extends React.Component {
           <View style={{flex: 2}}>
             
               <Text style={{textAlign: 'center', fontSize: 40, margin: '5%'}}>
-                {this.props.profile.starSign} are:
+                {this.props.user.profile.sunSign} are:
               </Text>
 
               
-                {signTraits[`${this.props.profile.starSign}`].map((trait) => {
+                {signTraits[`${this.props.user.profile.sunSign}`].map((trait) => {
                   return (
                     <View style={{borderRadius: 60, margin: '1%'}}>
                       

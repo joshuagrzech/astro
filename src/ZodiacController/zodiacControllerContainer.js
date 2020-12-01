@@ -2,8 +2,7 @@ import {connect} from 'react-redux'
 import ZodiacController from './zodiacController'
 
 const mapStateToProps = state => ({
-    birthdate: state.birthdate,
-    profile: state.profile
+    user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({

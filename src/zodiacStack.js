@@ -6,7 +6,8 @@ import ZodiacController from './ZodiacController/zodiacControllerContainer';
 import SunExplainer from './SunExplainer/sunExplainerContainer'
 import PersonalSun from './PersonalSun/personalSunContainer'
 import IntroFinal from './IntroFinal/introFinalContainer'
-import PassportIntro from './PassportIntro/PassportIntroContainer'
+import PassportStack from './PassportIntroStack/PassportIntroStackComponent'
+
 
 
 const Stack = createStackNavigator();
@@ -15,7 +16,7 @@ function ZodiacStack() {
     return (
       <NavigationContainer independent={true}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="PassIntro" component={PassportIntro} />
+        <Stack.Screen name="PassportStack" component={PassportStack} />
           <Stack.Screen name="Init" component={InitStarSign} />
           <Stack.Screen name="Sun" component={ZodiacController} />
           <Stack.Screen name="SunExplainer" component={SunExplainer} />

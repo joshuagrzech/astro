@@ -10,8 +10,8 @@ export class SunExplainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: parseInt(this.props.profile.birthMonth, 10),
-      day: parseInt(this.props.profile.birthDay, 10),
+      month: parseInt(this.props.user.profile.birthMonth, 10),
+      day: parseInt(this.props.user.profile.birthDay, 10),
       
     };
     this.zodiacView = this.zodiacView.bind(this)
@@ -125,9 +125,9 @@ export class SunExplainer extends React.Component {
             <View style={{flex: .75}}>
             <Card style={styles.infoCard}>
           <Text style={{textAlign: 'center', fontSize: 18}}>
-          This means that on {this.props.profile.birthMonth}/
-            {this.props.profile.birthDay}, the sun was over the{' '}
-            {this.props.profile.starSign} constellation.
+          This means that on {this.props.user.profile.birthMonth}/
+            {this.props.user.profile.birthDay}, the sun was over the{' '}
+            {this.props.user.profile.sunSign} constellation.
           </Text>
           </Card>
           </View>

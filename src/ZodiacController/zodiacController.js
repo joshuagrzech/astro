@@ -10,8 +10,8 @@ export default class ZodiacController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: parseInt(this.props.profile.birthMonth, 10),
-      day: parseInt(this.props.profile.birthDay, 10),
+      month: parseInt(this.props.user.profile.birthMonth, 10),
+      day: parseInt(this.props.user.profile.birthDay, 10),
     };
     this.setBirthdateNull = this.setBirthdateNull.bind(this);
     this.getZodiac = this.getZodiac.bind(this);

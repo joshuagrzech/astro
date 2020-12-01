@@ -2,9 +2,8 @@ import {connect} from 'react-redux'
 import {IntroFinal} from './introFinal'
 
 const mapStateToProps = state => ({
-    birthdate: state.birthdate,
-    profile: state.profile,
-    user: state.user,
+    
+    user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({

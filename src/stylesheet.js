@@ -33,6 +33,7 @@ export default StyleSheet.create({
     marginTop: '3%',
     fontSize: 25,
     marginHorizontal: '8%',
+    fontFamily: 'STHeitiTC-Medium',
     textAlign: 'center',
   },
   blueButton: {
@@ -45,7 +46,8 @@ export default StyleSheet.create({
     fontSize: 25,
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'STHeitiTC-Medium'
   },
   zodiacImage: {
     height: '70%',

@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
     birthdate: state.birthdate,
     setupComplete: state.setupComplete,
     stateUser: state.user
+    
 })
 
 const mapDispatchToProps = dispatch => ({
