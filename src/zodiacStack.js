@@ -1,29 +1,31 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import InitStarSign from './InitialStarSign/initialStarSignContainer'
-import ZodiacController from './ZodiacController/zodiacControllerContainer';
-import SunExplainer from './SunExplainer/sunExplainerContainer'
-import PersonalSun from './PersonalSun/personalSunContainer'
-import IntroFinal from './IntroFinal/introFinalContainer'
-import PassportStack from './PassportIntroStack/PassportIntroStackComponent'
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import PassportToProfilePic from './AppIntro/ProfileSetupContainer'
+import InitProfilePicUploadContainer from './InitProfilePicUpload/InitProfilePicUploadContainer';
+import { InitProfilePic } from './InitProfilePicUpload/InitProfilePicUploadComponent';
 
 
+const Stack = createStackNavigator()
 
-const Stack = createStackNavigator();
+export default function ZodiacStack() {
 
-function ZodiacStack() {
-    return (
-      <NavigationContainer independent={true}>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="PassportStack" component={PassportStack} />
-          <Stack.Screen name="Init" component={InitStarSign} />
-          <Stack.Screen name="Sun" component={ZodiacController} />
-          <Stack.Screen name="SunExplainer" component={SunExplainer} />
-          <Stack.Screen name="PersonalSun" component={PersonalSun} />
-          <Stack.Screen name="IntroFinal" component={IntroFinal} />
-        </Stack.Navigator> 
-      </NavigationContainer>
-    )
-  }
-export default ZodiacStack;
+  
+  return (
+    <NavigationContainer>
+      
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+   
+      <Stack.Screen name="Intro" component={PassportToProfilePic} />
+      <Stack.Screen name="ProfilePic" options={{
+        animationEnabled: false,
+      }} component={InitProfilePic}/>
+      
+      
+    </Stack.Navigator>
+    </NavigationContainer>
+   
+  );
+}
+

@@ -105,7 +105,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>YOUR_REASON_FOR_USING_USER_PHOTOS_HERE</string>
+	<string>Choose a Profile Picture</string>
 	<key>NSCameraUsageDescription</key>
 	<string>YOUR_REASON_FOR_USING_USER_CAMERA_HERE</string>
 </dict>

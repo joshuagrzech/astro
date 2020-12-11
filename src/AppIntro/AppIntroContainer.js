@@ -1,10 +1,17 @@
 import {connect} from 'react-redux'
 import {AppIntro} from './AppIntro'
 
-const mapDispatchToProps = dispatch => ({
-    onDone: (value) => {
-        dispatch({type: 'introduced', payload: true})
-    }, 
+const mapStateToProps = state => ({
+    sceneTransitionElements: state.sceneTransitionElements
 })
 
-export default connect(null, mapDispatchToProps)(AppIntro)
+const mapDispatchToProps = dispatch => ({
+    setSceneTransitionElement: (value) => {
+        dispatch({type: 'setSceneTransitionElement', payload: value})
+    }
+})
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppIntro)

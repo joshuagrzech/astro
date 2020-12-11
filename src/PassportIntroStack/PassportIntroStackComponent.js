@@ -6,11 +6,11 @@ import InitUsername from '../InitUsernameSet/InitUsernameSetContainer';
 
 const Stack = createStackNavigator();
 
-export default function PassportStack() {
+export default function PassportStack(props) {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="PassportIntro" component={PassportIntro} />
-      <Stack.Screen name="ProfilePicture" component={InitProfilePic} />
+      <Stack.Screen name="ProfilePicture" component={InitProfilePic} user={props}/>
       <Stack.Screen name="Username" component={InitUsername} />
       
     </Stack.Navigator>

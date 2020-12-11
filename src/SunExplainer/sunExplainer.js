@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import {Card} from 'react-native-shadow-cards';
 import styles from '../stylesheet'
+import * as Animatable from 'react-native-animatable'
 
 
 
@@ -115,14 +116,15 @@ export class SunExplainer extends React.Component {
     return (
       <SafeAreaView style={{ height: '100%'}}>
         
-        <View
+        <Animatable.View
+        animation="fadeIn"
           style={{
             textAlign: 'center',
             alignContent: 'center',
             alignItems: 'center',
             flex: 1
           }}>
-            <View style={{flex: .75}}>
+            <Animatable.View animation="slideInRight" style={{flex: 1}}>
             <Card style={styles.infoCard}>
           <Text style={{textAlign: 'center', fontSize: 18}}>
           This means that on {this.props.user.profile.birthMonth}/
@@ -130,22 +132,20 @@ export class SunExplainer extends React.Component {
             {this.props.user.profile.sunSign} constellation.
           </Text>
           </Card>
-          </View>
-          <View style={{flex: 1.8}}>
+          </Animatable.View>
+          <Animatable.View delay={1000}animation="slideInRight" style={{flex: 3, alignItems: 'center'}}>
           <Card style={styles.infoCard}>
-          <Text style={{textAlign: 'center', marginTop: '5%', marginHorizontal: '5%', fontSize: 22, fontWeight: 'bold'}}>
-            
-          </Text>
+          
           
           {this.zodiacView(this.state.month, this.state.day)}
           </Card>
-          </View>
-          <View style={{flex: .5}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('PersonalSun')} style={styles.blueButton}>
+          </Animatable.View>
+          <Animatable.View delay={2000} animation="slideInUp" style={{flex: .5}}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('IntroFinal')} style={styles.blueButton}>
           <Text style={styles.whiteButtonText}>Next</Text>
         </TouchableOpacity> 
-        </View>
-        </View>
+        </Animatable.View>
+        </Animatable.View>
       </SafeAreaView>
     );
   }

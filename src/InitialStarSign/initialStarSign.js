@@ -6,12 +6,13 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
 import styles from '../stylesheet';
 import {faRubleSign} from '@fortawesome/free-solid-svg-icons';
+import * as Animatable from 'react-native-animatable'
 
 export class InitStarSign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      birthdate: null,
+      birthdate: new Date,
       month: '',
       day: '',
     };
@@ -51,36 +52,37 @@ export class InitStarSign extends React.Component {
           position: 'relative',
           flex: 1,
         }}>
-        <View style={styles.topView}>
-          <View style={{flex: 3}}>
+        <Animatable.View animation='fadeIn' style={styles.topView}>
+          <Animatable.View animation='slideInRight' duration={1000} style={{flex: 3}}>
             <Card style={styles.interactCard}>
               <Text style={styles.questionText}>When were you born?</Text>
               <DatePicker
                 date={this.state.birthdate}
+                
                 mode="date"
                 onDateChange={this.setDate}
               />
             </Card>
-          </View>
-          <View style={{flex: 0.25}}>
+          </Animatable.View>
+          <Animatable.View animation='slideInRight' delay={1000} duration={500} style={{flex: 0.25}}>
             <Text style={styles.boldWhiteText}>
               This will tell us your sun-sign.
             </Text>
-          </View>
-          <View style={{flex: 2, alignItems: 'center'}}>
+          </Animatable.View>
+          <Animatable.View animation='slideInRight' delay={1000} duration={1000} style={{flex: 2, alignItems: 'center'}}>
             <Image
               style={styles.sunImage}
               source={require('../../assets/032-sun.png')}
             />
-          </View>
-          <View style={{flex: 0.75}}>
+          </Animatable.View>
+          <Animatable.View animation='slideInUp' delay={2000} style={{flex: 0.75}}>
             <TouchableOpacity
               onPress={this.setBirthday}
               style={styles.blueButton}>
               <Text style={styles.whiteButtonText}>Next</Text>
             </TouchableOpacity>
-          </View>
-        </View>
+          </Animatable.View>
+        </Animatable.View>
       </SafeAreaView>
     );
   }

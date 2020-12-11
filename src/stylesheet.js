@@ -80,6 +80,7 @@ export default StyleSheet.create({
     padding: '5%',
     borderRadius: 30,
     alignItems: 'center',
+    alignContent: 'center'
   },
   sunImage: {
     maxHeight: '95%',
@@ -90,5 +91,77 @@ export default StyleSheet.create({
   },
   spinner: {
     
+  },
+  sunModal: {
+    backgroundColor: 'transparent'
+  },
+  sunModalSquare: {
+    width: 250,
+    height: '70%',
+    backgroundColor: 'orange',
+    borderRadius: 10,
+    padding: '5%'
+  },
+  sunModalTriangle: {
+    position: 'absolute',
+    left: 115,
+    top: -26,
+    width: 0,
+    height: 0,
+    transform: [{ rotate: "90deg" }],
+    borderTopColor: 'transparent',
+    borderTopWidth: 13,
+    borderRightWidth: 26,
+    borderRightColor: 'orange',
+    borderBottomWidth: 13,
+    borderBottomColor: 'transparent'
+  },
+  moonModal: {
+    backgroundColor: 'transparent'
+  },
+  moonModalSquare: {
+    width: 250,
+    height: '70%',
+    backgroundColor: 'gray',
+    borderRadius: 10,
+    padding: '5%'
+  },
+  moonModalTriangle: {
+    position: 'absolute',
+    left: 115,
+    top: -26,
+    width: 0,
+    height: 0,
+    transform: [{ rotate: "90deg" }],
+    borderTopColor: 'transparent',
+    borderTopWidth: 13,
+    borderRightWidth: 26,
+    borderRightColor: 'gray',
+    borderBottomWidth: 13,
+    borderBottomColor: 'transparent'
+  },
+  risingModal: {
+    backgroundColor: 'transparent'
+  },
+  risingModalSquare: {
+    width: 250,
+    height: '70%',
+    backgroundColor: 'black',
+    borderRadius: 10,
+    padding: '5%'
+  },
+  risingModalTriangle: {
+    position: 'absolute',
+    left: 162,
+    top: -26,
+    width: 0,
+    height: 0,
+    transform: [{ rotate: "90deg" }],
+    borderTopColor: 'transparent',
+    borderTopWidth: 13,
+    borderRightWidth: 26,
+    borderRightColor: 'black',
+    borderBottomWidth: 13,
+    borderBottomColor: 'transparent'
   }
 });

@@ -1,9 +1,12 @@
 import React from 'react';
-import {View, Text, SafeAreaView, Button, Image} from 'react-native';
+import {View, Text, SafeAreaView, Button, Image, TouchableNativeFeedbackBase} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {Card} from 'react-native-shadow-cards';
 import styles from '../stylesheet';
+import * as Animatable from 'react-native-animatable'
+import Confetti from '../animations/confettiComponent'
+var Spinner = require('react-native-spinkit');
 
 
 export default class ZodiacController extends React.Component {
@@ -12,10 +15,14 @@ export default class ZodiacController extends React.Component {
     this.state = {
       month: parseInt(this.props.user.profile.birthMonth, 10),
       day: parseInt(this.props.user.profile.birthDay, 10),
+      loading: true,
+      confetti: false
     };
     this.setBirthdateNull = this.setBirthdateNull.bind(this);
     this.getZodiac = this.getZodiac.bind(this);
     this.sendStarSign = this.sendStarSign.bind(this);
+    this.loadingView = this.loadingView.bind(this)
+    this.confetti = this.confetti.bind(this)
   }
 
   getZodiac(month, day) {
@@ -48,6 +55,30 @@ export default class ZodiacController extends React.Component {
       return 'Sagittarius';
     } else {
       return 'Capricorn';
+    }
+  }
+
+  confetti() {
+    if (this.state.confetti === true)
+      return(
+        <View style={{height: '100%', width: '100%', position: 'absolute'}}>
+          <Confetti />
+        </View>
+      )
+  }
+
+  loadingView() {
+    if (this.state.loading === true) {
+      return(
+        <Animatable.View style={{flex: 1, marginTop: '50%'}} animation='fadeIn'>
+        <Spinner
+              isVisible={true}
+              color={'black'}
+              size={50}
+              type={'Pulse'}
+            />
+            </Animatable.View>
+      )
     }
   }
 
@@ -160,7 +191,8 @@ export default class ZodiacController extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        <View
+        <Animatable.View
+        animation='fadeIn'
           style={{
             alignItems: 'center',
             height: '100%',
@@ -168,23 +200,34 @@ export default class ZodiacController extends React.Component {
            
             
           }}>
-          <View style={{flex: 4, justifyContent: 'center', alignItems: 'center', marginTop: '6%'}}>
+          <Animatable.View onAnimationBegin={() => setTimeout(() => this.setState({confetti: true}), 1900)} animation='slideInRight' style={{flex: 0.5, justifyContent: 'center', alignItems: 'center', marginTop: '6%'}}>
+            
             <Text style={styles.boldText}>Your sun-sign is:</Text>
+            </Animatable.View>
+            
+            
+            {this.loadingView()}
+            {this.confetti()}
+            <Animatable.View animation='bounceIn' onAnimationBegin={() => this.setState({loading: false})} delay={2000} duration={1000} style={{flex: 4}}>
             <Card style={styles.infoCard}>
+              
               <Text style={styles.boldBlueText}>
                 {this.getZodiac(this.state.month, this.state.day)}
               </Text>
               {this.zodiacView(this.state.month, this.state.day)}
             </Card>
-          </View>
-          <View style={{flex: .6}}>
+            
+            </Animatable.View>
+            
+          <Animatable.View animation='slideInUp' delay={3000} style={{flex: 0.5}}>
             <TouchableOpacity
               onPress={this.sendStarSign}
               style={styles.blueButton}>
               <Text style={styles.whiteButtonText}>Next</Text>
             </TouchableOpacity>
-          </View>
-        </View>
+          </Animatable.View>
+          
+        </Animatable.View>
       </SafeAreaView>
     );
   }

@@ -1,8 +1,9 @@
 import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
-import Story from 'react-native-story';
+
 import Passport from '../Passport/PassportContainer';
 import styles from '../stylesheet';
+import * as Animatable from 'react-native-animatable'
 
 export class HomeScreen extends React.Component {
   constructor(props) {
@@ -11,13 +12,12 @@ export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1}}>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-          <Passport user={this.props}/>
-        </View>
-        <View style={{flex: 3}}>
-
-        </View>
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', alignContent: 'center'}}>
+        <Animatable.View animation="zoomIn" style={{flex: .9, alignItems: 'center', alignContent: 'center', marginTop: '10%'}}>
+          <Passport />
+        </Animatable.View>
+        <View style={{flex: 3}}></View>
       </SafeAreaView>
     );
   }

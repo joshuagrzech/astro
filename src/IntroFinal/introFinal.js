@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView, View, Text, Image, TouchableOpacity} from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
+import { Passport } from '../Passport/PassportComponent';
+import * as Animatable from 'react-native-animatable'
 import styles from '../stylesheet';
 
-
 export class IntroFinal extends React.Component {
-  
   constructor(props) {
     super(props);
     this.completeSetup = this.completeSetup.bind(this);
@@ -13,8 +13,9 @@ export class IntroFinal extends React.Component {
       spinner: false,
     };
   }
+  
+
   completeSetup() {
-    console.log(this.props.user.uid)
     fetch('https://us-central1-astro-ee1e9.cloudfunctions.net/saveNewUser', {
       method: 'POST',
       headers: {
@@ -22,18 +23,34 @@ export class IntroFinal extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: Object.assign({}, this.props.user, {setupComplete: true})
+        setupComplete: true,
+        uid: this.props.user.uid,
+        username: this.props.username,
+        profilePicture: this.props.user.profilePicture,
+        profile: this.props.user.profile,
       }),
     }).then(() => {
-      this.props.userData({setupComplete: true});
+      const userObject = {
+        
+          setupComplete: true,
+          uid: this.props.user.uid,
+          username: this.props.user.username,
+          profilePicture: this.props.user.profilePicture,
+          profile: this.props.user.profile,
+        
+      }
+      this.props.userData(userObject)
+      setTimeout(() => this.props.navigation.navigate('AppNavigator'), 3000)
+      
     });
   }
   render() {
+    console.log(this.props.user)
     return (
       <SafeAreaView style={{height: '100%'}}>
-        
         <View style={{flex: 1}}>
-          <View
+          <Animatable.View
+          animation="slideInRight"
             style={{
               alignItems: 'center',
               alignContent: 'center',
@@ -48,14 +65,11 @@ export class IntroFinal extends React.Component {
               Inside, you will find heaps of info to help guide your spiritual
               self and others into the physical world.
             </Text>
-          </View>
-          <View style={{flex: 0.75, alignItems: 'center'}}>
-            <Image
-              style={{height: '100%', width: '40%'}}
-              source={require('../../assets/010-constellations.png')}
-            />
-          </View>
-          <View style={{flex: 0.75, padding: '10%'}}>
+          </Animatable.View>
+          <Animatable.View animation="slideInRight" delay={500} duration={2000} style={{flex: 0.75, alignItems: 'center', marginVertical: '5%'}}>
+          <Passport user={this.props.user} />
+          </Animatable.View>
+          <Animatable.View animation="slideInRight"  style={{flex: 0.75, padding: '10%'}}>
             <Text style={{textAlign: 'center', fontSize: 20, margin: '2%'}}>
               Check back daily for new predictions, reference material, and
               more!
@@ -64,8 +78,8 @@ export class IntroFinal extends React.Component {
               Hint: You can complete your star chart on your profile page for
               further information about your Moon and Ascendant signs.
             </Text>
-          </View>
-          <View style={{flex: 0.75, alignItems: 'center'}}>
+          </Animatable.View>
+          <Animatable.View animation='slideInUp' delay={2000} style={{flex: 0.75, alignItems: 'center'}}>
             <TouchableOpacity
               onPress={this.completeSetup}
               style={{
@@ -76,7 +90,7 @@ export class IntroFinal extends React.Component {
               }}>
               <Text style={{fontSize: 25, color: 'white'}}>Next</Text>
             </TouchableOpacity>
-          </View>
+          </Animatable.View>
         </View>
       </SafeAreaView>
     );

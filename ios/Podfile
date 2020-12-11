@@ -16,6 +16,10 @@ target 'Astro' do
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
+  pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
+
+  pod 'RNSharedElement', :path => '../node_modules/react-native-shared-element'
+
   target 'AstroTests' do
     inherit! :complete
     # Pods for testing

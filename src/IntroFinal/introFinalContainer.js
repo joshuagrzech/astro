@@ -21,7 +21,13 @@ const mapDispatchToProps = dispatch => ({
     },
     userData: (value) => {
         dispatch({type: "userData", payload: value})
-    }      
+    },
+    setIsLoading: (value) => {
+        dispatch({type: "setIsLoading", payload: value})
+    },
+    setCheckedForUser: (value) => {
+        dispatch({type: "setCheckedForUser", payload: value})
+    }     
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(IntroFinal)
